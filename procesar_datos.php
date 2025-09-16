@@ -1,14 +1,14 @@
 <?php
-    $dni = $_GET['dni'];
-    $apellidos = $_GET['apellidos'];
-    $nombres = $_GET['nombres'];
-    $edad = $_GET['edad'];
-    $correo = $_GET['correo'];
-    $clave = $_GET['clave'];
-    $direccion = $_GET['direccion'];
-    $area = $_GET['area'];
-    $disponibilidad = $_GET['disponibilidad'];
-    $telefono = $_GET['telefono'];
+    $dni = $_POST['dni'];
+    $apellidos = $_POST['apellidos'];
+    $nombres = $_POST['nombres'];
+    $edad = $_POST['edad'];
+    $correo = $_POST['correo'];
+    $clave = $_POST['clave'];
+    $direccion = $_POST['direccion'];
+    $area = $_POST['area'];
+    $disponibilidad = $_POST['disponibilidad'];
+    $telefono = $_POST['telefono'];
 
     echo "DNI: $dni <br>";
     echo "Apellidos: $apellidos <br>";
