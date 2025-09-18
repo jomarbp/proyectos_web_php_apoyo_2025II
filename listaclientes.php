@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php include 'config.php' ?>
 
 <head>
     <title>Bootstrap Example</title>
@@ -22,32 +23,39 @@
         <div class="row">
             <div class="col-sm-12">
                 <h3>Lista Clientes</h3>
-                <p>The .table-dark class adds a black background to the table:</p>
+                <p>Relación obtenida desde la base de datos</p>
+                <?php
+                $stmt = $conexion->prepare("select * from cliente");
+                $stmt->execute();
+                $resultado = $stmt->fetchAll();
+                ?>
                 <table class="table table-dark">
                     <thead>
                         <tr>
-                            <th>Firstname</th>
-                            <th>Lastname</th>
-                            <th>Email</th>
+                            <th>DNI</th>
+                            <th>Apellidos</th>
+                            <th>Nombres</th>
+                            <th>Accciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>John</td>
-                            <td>Doe</td>
-                            <td>john@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>Mary</td>
-                            <td>Moe</td>
-                            <td>mary@example.com</td>
-                        </tr>
-                        <tr>
-                            <td>July</td>
-                            <td>Dooley</td>
-                            <td>july@example.com</td>
-                        </tr>
-                    </tbody>
+                    <?php
+                    foreach ($resultado as $fila) {
+                        ?>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $fila['dni']; ?></td>
+                                <td><?php echo $fila['nombre']; ?></td>
+                                <td><?php echo $fila['apellido']; ?></td>
+                                <td>
+                                    <button type="button" class="btn btn-success">Editar</button>
+                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                        <?php
+                    }
+                    ?>
                 </table>
             </div>
 
