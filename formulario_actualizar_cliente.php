@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<?php include 'config.php' ?>
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -16,22 +16,29 @@
     <div class="jumbotron text-center">
         <h1>Formulario de Actualización</h1>
     </div>
-
+    <?php
+    $stmt = $conexion->prepare("SELECT * FROM cliente where dni=?");
+    $stmt->bindParam(1, $_GET['dni']);
+    $stmt->execute();
+    $resultado = $stmt->fetchAll();
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <form action="/action_page.php">
                     <div class="form-group">
                         <label for="dni">DNI:</label>
-                        <input type="text" class="form-control" placeholder="Ingrese dni" id="dni" name="dni">
+                        <input type="text" class="form-control" placeholder="Ingrese dni" id="dni" name="dni" value="<?php echo $resultado[0]['dni']; ?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Apellidos:</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Apellidos" id="apellidos" name="apellidos">
+                        <input type="text" class="form-control" placeholder="Ingrese Apellidos" id="apellidos"
+                            name="apellidos" value="<?php echo $resultado[0]['apellido'];  ?>">
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
                         <label for="apellidos">Nombres:</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Nombres" id="nombres" name="nombres">
+                        <input type="text" class="form-control" placeholder="Ingrese Nombres" id="nombres"
+                            name="nombres">
                     </div>
                     <button type="submit" class="btn btn-success">Actualizar</button>
                 </form>

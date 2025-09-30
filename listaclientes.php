@@ -33,8 +33,8 @@
                     <thead>
                         <tr>
                             <th>DNI</th>
-                            <th>Apellidos</th>
                             <th>Nombres</th>
+                            <th>Apellidos</th>
                             <th>Accciones</th>
                         </tr>
                     </thead>
@@ -47,12 +47,12 @@
                                 <td><?php echo $fila['nombre']; ?></td>
                                 <td><?php echo $fila['apellido']; ?></td>
                                 <td>
-                                    <button type="button" class="btn btn-success">Editar</button>
+                                    <a href="formulario_actualizar_cliente.php?dni=<?php echo $fila['dni']; ?>" class="btn btn-success">Editar</a>
                                     <button type="button" class="btn btn-danger">Eliminar</button>
                                 </td>
                             </tr>
                         </tbody>
-
+                                
                         <?php
                     }
                     ?>
