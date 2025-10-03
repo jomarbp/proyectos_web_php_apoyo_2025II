@@ -29,9 +29,20 @@
                 <?php 
                     if(isset($_GET['mensaje']) and $_GET['mensaje']=='actualizado'){
                 ?>
-                <div class="alert alert-danger alert-dismissible fade show">
+                <div class="alert alert-success alert-dismissible fade show">
                     <button type="button" class="close" data-dismiss="alert">&times;</button>
                     <strong>Hecho!</strong> El usuarios fue actualizado.
+                </div>
+                <?php
+                    }
+                ?>
+
+                 <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje']=='eliminado'){
+                ?>
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Hecho!</strong> El usuarios fue Eliminado.
                 </div>
                 <?php
                     }
