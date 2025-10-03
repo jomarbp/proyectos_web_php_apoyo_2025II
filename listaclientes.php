@@ -18,12 +18,25 @@
         <h1>My First Bootstrap Page</h1>
         <p>Resize this responsive page to see the effect!</p>
     </div>
+    
 
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <h3>Lista Clientes</h3>
                 <p>Relación obtenida desde la base de datos</p>
+
+                <?php 
+                    if(isset($_GET['mensaje']) and $_GET['mensaje']=='actualizado'){
+                ?>
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Hecho!</strong> El usuarios fue actualizado.
+                </div>
+                <?php
+                    }
+                ?>
+
                 <?php
                 $stmt = $conexion->prepare("select * from cliente");
                 $stmt->execute();
@@ -47,12 +60,14 @@
                                 <td><?php echo $fila['nombre']; ?></td>
                                 <td><?php echo $fila['apellido']; ?></td>
                                 <td>
-                                    <a href="formulario_actualizar_cliente.php?dni=<?php echo $fila['dni']; ?>" class="btn btn-success">Editar</a>
-                                    <button type="button" class="btn btn-danger">Eliminar</button>
+                                    <a href="formulario_actualizar_cliente.php?dni=<?php echo $fila['dni']; ?>"
+                                        class="btn btn-success">Editar</a>
+                                    <a href="eliminar_cliente.php?dni=<?php echo $fila['dni']; ?>"
+                                        class="btn btn-danger">Eliminar</a>
                                 </td>
                             </tr>
                         </tbody>
-                                
+
                         <?php
                     }
                     ?>

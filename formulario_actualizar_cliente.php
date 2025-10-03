@@ -25,7 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
-                <form action="/action_page.php">
+                <form action="actualizar_cliente.php" method="POST">
                     <div class="form-group">
                         <label for="dni">DNI:</label>
                         <input type="text" class="form-control" placeholder="Ingrese dni" id="dni" name="dni" value="<?php echo $resultado[0]['dni']; ?>" readonly>
@@ -38,7 +38,7 @@
                     <div class="form-group">
                         <label for="apellidos">Nombres:</label>
                         <input type="text" class="form-control" placeholder="Ingrese Nombres" id="nombres"
-                            name="nombres">
+                            name="nombres" value="<?php echo $resultado[0]['nombre'];  ?>">
                     </div>
                     <button type="submit" class="btn btn-success">Actualizar</button>
                 </form>
