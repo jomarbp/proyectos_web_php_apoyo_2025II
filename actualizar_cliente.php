@@ -10,7 +10,7 @@
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         echo "Registro actualizado correctamente.";
-        header("Location: listaclientes.php?mensaje=actualizado");
+        header("Location: index.php?mensaje=actualizado");
     } else {
         echo "No se pudo actualizar el registro.";
     } 

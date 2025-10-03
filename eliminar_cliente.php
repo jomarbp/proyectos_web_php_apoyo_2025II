@@ -6,7 +6,7 @@
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         echo "Registro eliminado correctamente.";
-        header("Location: listaclientes.php?mensaje=eliminado");
+        header("Location: index.php?mensaje=eliminado");
     } else {
         echo "No se pudo eliminar el registro.";
     } 
